@@ -2,17 +2,18 @@
 import sys
 import re
 
-methods_list = ['сложение', 'вычитание', 'умножение', 'деление']
+methods_list = ['+', '-', '*', '/']
 
 
-def calculate(a, b, method):
-    if method == 'сложение':
+def calculate(a: str, b: str, method: str):
+    a, b = int(a), int(b)
+    if method == '+':
         result = a + b
-    elif method == 'вычитание':
+    elif method == '-':
         result = a - b
-    elif method == 'умножение':
+    elif method == '*':
         result = a * b
-    elif method == 'деление':
+    elif method == '/':
         if b == 0:
             return None, 'Попытка делить на ноль'
         result = int(a / b)
