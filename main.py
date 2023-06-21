@@ -10,7 +10,7 @@ def calculate(a, b, method):
         result = a + b
     elif method == 'вычитание':
         result = a - b
-    elif method == '*':
+    elif method == 'умножение':
         result = a * b
     elif method == 'деление':
         if b == 0:
