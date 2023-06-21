@@ -30,14 +30,13 @@ def main():
     print()
     b = int(input('Введите второе число:'))
     print()
-    print('Доступные методы:')
     for i, item in enumerate(operations_list):
         print(f'[{i}] {item}')
-    operation_num = input('Введите число [0]:')
+    operation_num = input('Выберите операцию [0]:')
     if not operation_num:
         operation_num = 0
     operation = operations_list[int(operation_num)]
-    print_result(a, b, operation)
+    print_result(a=a, b=b, operation=operation)
 
 
 def print_result(**kwargs):
@@ -80,4 +79,4 @@ if __name__ == '__main__':
                 print('Unknown flag:', arg)
                 print(help_message)
                 exit(1)
-    # main()
+    main()
