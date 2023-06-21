@@ -2,18 +2,21 @@
 import sys
 import re
 
-methods_list = ['+', '-', '*', '/']
+operations_list = ['+', '-', '*', '/']
 
 
-def calculate(a: str, b: str, method: str):
+def calculate(a: str, b: str, operation: str):
+    """
+    Рассчитывает результат применения операции operation к аргументам a и b 
+    """
     a, b = int(a), int(b)
-    if method == '+':
+    if operation == '+':
         result = a + b
-    elif method == '-':
+    elif operation == '-':
         result = a - b
-    elif method == '*':
+    elif operation == '*':
         result = a * b
-    elif method == '/':
+    elif operation == '/':
         if b == 0:
             return None, 'Попытка делить на ноль'
         result = int(a / b)
@@ -49,9 +52,11 @@ def print_result(**kwargs):
         print(result)
         exit()
 
+
 if __name__ == '__main__':
     filename = sys.argv[0]
-    target_pattern = re.compile(r'^(?P<a>\d*)(?P<method>[\*\+\-\/]?)(?P<b>\d*)$')
+    target_pattern = re.compile(
+        r'^(?P<a>\d*)(?P<operation>[\*\+\-\/]?)(?P<b>\d*)$')
     first_message = 'Simple calc 0.0'
     help_message = f'See "{filename} --help".'
 
