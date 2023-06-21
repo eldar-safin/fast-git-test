@@ -31,13 +31,13 @@ def main():
     b = int(input('Введите второе число:'))
     print()
     print('Доступные методы:')
-    for i, item in enumerate(methods_list):
+    for i, item in enumerate(operations_list):
         print(f'[{i}] {item}')
-    method_num = input('Введите число [0]:')
-    if not method_num:
-        method_num = 0
-    method = methods_list[int(method_num)]
-    print_result(a, b, method)
+    operation_num = input('Введите число [0]:')
+    if not operation_num:
+        operation_num = 0
+    operation = operations_list[int(operation_num)]
+    print_result(a, b, operation)
 
 
 def print_result(**kwargs):
