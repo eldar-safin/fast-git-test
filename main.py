@@ -33,13 +33,20 @@ def main():
     if not method_num:
         method_num = 0
     method = methods_list[int(method_num)]
-    result, error = calculate(a, b, method)
+    print_result(a, b, method)
+
+
+def print_result(**kwargs):
+    """
+    Выводит результат операции
+    """
+    result, error = calculate(**kwargs)
     if error:
-        print('Ошибка:', error)
+        print(error)
         exit(1)
     else:
-        print('Результат:', result)
-
+        print(result)
+        exit()
 
 if __name__ == '__main__':
     filename = sys.argv[0]
@@ -51,12 +58,7 @@ if __name__ == '__main__':
         arg = sys.argv[ind]
         arg_target = re.match(target_pattern, arg)
         if arg_target and all(arg_target.groups()):
-            result, error = calculate(**arg_target.groupdict())
-            if error:
-                print('Ошибка:', error)
-                exit(1)
-            else:
-                print('Результат:', result)
+            print_result(**arg_target.groupdict())
         else:
             if arg == '-h' or arg == '--help':
                 print(first_message)
